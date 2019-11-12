@@ -1,0 +1,140 @@
+.swiper-container {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  .swiper-pagination {
+    top: 0;
+    left: 1rem;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 20vh 0;
+    right: auto;
+    transform: none;
+
+    .swiper-pagination-bullet {
+      opacity: 1;
+      width: 0.75rem;
+      height: 0.75rem;
+      margin: 0;
+      background-color: #888;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: #fff;
+    }
+  }
+
+  .swiper-pagination::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: calc(60vh - 4px);
+    background-color: #ddd;
+    transform: translateX(calc(calc(0.75rem / 2) - 0.5px)) translateY(2px);
+    z-index: -1;
+  }
+
+  .slide {
+    height: 100vh;
+    background: no-repeat center /cover;
+    padding: 1rem;
+    position: relative;
+    animation: bgFalling 1s ease 1 forwards;
+
+    .content {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      padding: 2rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      color: #eee;
+      flex-direction: column;
+      transform: scale(0.5);
+      transition: all 0.5s ease;
+
+      * {
+        opacity: 0;
+        transition: all 0.5s ease;
+      }
+
+      h1 {
+        font-size: 5rem;
+        font-weight: 900;
+        text-shadow: 0 1px 2px #000;
+        opacity: 0.5;
+      }
+
+      p {
+        font-size: 0.8rem;
+        text-shadow: 0 1px 2px #000;
+      }
+
+      .btn {
+        font-size: 1rem;
+        padding: 1rem 2rem;
+      }
+    }
+  }
+
+  .slide::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .slide.swiper-slide-active {
+    .content {
+      transform: scale(1);
+      transition: all 0.5s ease;
+
+      * {
+        opacity: 1;
+        transition: all 0.5s ease;
+      }
+    }
+  }
+
+  .places-swiper {
+    .places-slide {
+      display: flex;
+      align-items: center;
+
+      .card {
+        min-width: 400px;
+        height: 50vh;
+      }
+
+      .card:first-child {
+        background-color: transparent;
+        border: none;
+      }
+    }
+
+    .swiper-container {
+      overflow: visible;
+      position: relative;
+    }
+
+    .swiper-places-pagination {
+      position: fixed;
+      z-index: 10;
+      right: 1rem;
+      left: auto;
+      text-align: right;
+    }
+  }
+}
